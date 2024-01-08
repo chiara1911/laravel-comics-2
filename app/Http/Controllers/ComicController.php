@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comic;
 use illuminate\View\View;
+
 class ComicController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class ComicController extends Controller
     {
         //
         $comics = Comic::all();
-        return view('comics.index' , compact("comics"));
+        return view('comics.index', compact("comics"));
     }
 
     /**
@@ -26,18 +27,31 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        //inserire elementi di un nuovo comic in db
+        return view('comics.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\View\View
      */
     public function store(Request $request)
     {
         //
+        $formData = $request->all();
+        $newComic = new Comic();
+        $newComic->title = $formData["title"];
+        $newComic->description = $formData["description"];
+        $newComic->thumb = 'https://www.coverbrowser.com/image/action-comics/1-1.jpg';
+        $newComic->price = $formData["price"];
+        $newComic->sale_date = '2024-01-08';
+        $newComic->series = 'comics';
+        $newComic->type = $formData["type"];
+        $newComic->save();
+
+        return to_route('comics.index');
     }
 
     /**
