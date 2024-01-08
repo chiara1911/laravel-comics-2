@@ -16,7 +16,8 @@ use App\Http\Controllers\ComicController;
 
 Route::get('/', function () {
     $comics = config('db.comics');
-    return view('home' , compact('comics'));
+    return to_route('comics.index');
+    // return view('home' , compact('comics'));
 });
 
 
