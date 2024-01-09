@@ -27,6 +27,8 @@
 
                     </div>
                 </div>
+                <a href="{{ route('comics.edit', $comic->id) }}"> <button class="btn btn-success">modifica</button>
+                </a>
 
 
             </div>

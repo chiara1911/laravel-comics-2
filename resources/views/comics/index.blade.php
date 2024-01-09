@@ -17,7 +17,8 @@
                     <div class="col-12 col-md-3 col-lg-2">
                         <div class="card-wrapper">
                             <div class="img-card overflow-hidden">
-                                <a href="{{ route ('comics.show', $comic->id)}}"><img src="{{ $comic->thumb }}" alt="{{ $comic->series }}"></a>
+                                <a href="{{ route('comics.show', $comic->id) }}"><img src="{{ $comic->thumb }}"
+                                        alt="{{ $comic->series }}"></a>
                             </div>
 
                             <span
