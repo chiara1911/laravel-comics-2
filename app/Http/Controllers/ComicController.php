@@ -72,7 +72,7 @@ class ComicController extends Controller
      * @param  int  $id
      *
      */
-    public function edit($comic)
+    public function edit(Comic $comic)
     {
         //
         return view('comics.edit', compact('comic'));
@@ -81,10 +81,11 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     *
      * @param  int  $id
-     *@return \Illuminate\View\View
+     *
      * @param \App\Models\Comic $comic
+     * @return \Illuminate\View\View
      */
     public function update(Request $request, Comic $comic)
 
