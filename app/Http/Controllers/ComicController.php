@@ -70,7 +70,7 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     *
+     *@param \App\Models\Comic $comic
      */
     public function edit(Comic $comic)
     {
@@ -108,10 +108,13 @@ class ComicController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *@param  \App\Models\Comic  $comic
+     * @return \Illuminate\View\View
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
         //
+        $comic->delete();
+        return to_route('comics.index', $comic->id);
     }
 }
