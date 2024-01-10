@@ -21,6 +21,7 @@
                                 <span class="btn btn-primary  p-3">{{ $comic->price }}</span>
                                 <span class="d-flex flex-column">data di uscita :
                                     <span>{{ $comic->sale_date }}</span></span>
+                                    <span>{{ $comic->type }}</span>
                             </div>
 
                         </div>

@@ -53,7 +53,7 @@ class ComicController extends Controller
         $newComic->type = $formData["type"];
         $newComic->save();
 
-        // return to_route('comics.index');
+        return to_route('comics.index');
     }
 
     /**

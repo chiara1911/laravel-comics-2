@@ -12,11 +12,11 @@
         <div class="container">
             <a href="{{route ('comics.create') }}" class="btn btn-primary "> crea nuovo fumetto</a>
 
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" name="type" id="type" aria-label="Default select example">
                 <option selected>Seleziona la serie</option>
                 <option value="">All</option>
-                <option value="comic">comic</option>
-                <option value="novel">novel</option>
+                <option value="comic book">comic</option>
+                <option value="graphic novel">novel</option>
               </select>
             <h2 class="text-light">DC COMICS</h2>
             <div class="row">
