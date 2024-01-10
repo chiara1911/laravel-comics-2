@@ -10,14 +10,18 @@
     <main>
 
         <div class="container">
-            <a href="{{route ('comics.create') }}" class="btn btn-primary "> crea nuovo fumetto</a>
+            <a href="{{ route('comics.create') }}" class="btn btn-primary "> crea nuovo fumetto</a>
+            <form action="{{ route('comics.index') }}" method="GET">
+                <select class="form-select" name="type" id="type" aria-label="Default select example">
+                    <option selected>Seleziona la serie</option>
+                    <option value="">All</option>
+                    <option value="comic book">comic book</option>
+                    <option value="graphic novel">graphic novel</option>
+                </select>
+                <button type="submit" class="mt-4 btn btn-success">filtra per elementi
 
-            <select class="form-select" name="type" id="type" aria-label="Default select example">
-                <option selected>Seleziona la serie</option>
-                <option value="">All</option>
-                <option value="comic book">comic</option>
-                <option value="graphic novel">novel</option>
-              </select>
+                </button>
+            </form>
             <h2 class="text-light">DC COMICS</h2>
             <div class="row">
                 @foreach ($comics as $comic)
