@@ -10,6 +10,9 @@
     <main>
 
         <div class="container">
+            @if (session()->has('message'))
+                <div class="alert alert-success">{{ session()->get('message') }}</div>
+            @endif
             <a href="{{ route('comics.create') }}" class="btn btn-primary "> crea nuovo fumetto</a>
             <form action="{{ route('comics.index') }}" method="GET">
                 <select class="form-select" name="type" id="type" aria-label="Default select example">
@@ -34,6 +37,15 @@
                             <span
                                 class="p-2 d-flex flex-wrap align-content-center text-light text-uppercase">{{ $comic->title }}</span>
                         </div>
+                        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-success">modifica</a>
+                        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="cancel-button btn btn-danger"
+                                data-item-title="{{ $comic->title }}"> Cancella </button>
+
+                        </form>
                     </div>
                 @endforeach
             </div>
@@ -56,4 +68,5 @@
             </div>
         </div>
     </main>
+    @include('partials.modal_delete')
 @endsection

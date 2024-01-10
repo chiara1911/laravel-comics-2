@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Comic;
+use Illuminate\Http\Request;
 use illuminate\View\View;
-
+use App\Http\Requests\StoreComicRequest;
 class ComicController extends Controller
 {
     /**
@@ -43,22 +42,20 @@ class ComicController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-
-
-        $formData = $request->all();
+        $formData = $request->validated();
         // dd($formData);
-        $newComic = new Comic();
-        $newComic->title = $formData["title"];
-        $newComic->description = $formData["description"];
-        $newComic->thumb = 'https://www.coverbrowser.com/image/action-comics/1-1.jpg';
-        $newComic->price = $formData["price"];
-        $newComic->sale_date = '2024-01-08';
-        $newComic->series = 'comics';
-        $newComic->type = $formData["type"];
-        $newComic->save();
-
+        // $newComic = new Comic();
+        // $newComic->title = $formData["title"];
+        // $newComic->description = $formData["description"];
+        // $newComic->thumb = 'https://www.coverbrowser.com/image/action-comics/1-1.jpg';
+        // $newComic->price = $formData["price"];
+        // $newComic->sale_date = '2024-01-08';
+        // $newComic->series = 'comics';
+        // $newComic->type = $formData["type"];
+        // $newComic->save();
+        $newComic = Comic::create($formData);
         return to_route('comics.index');
     }
 
@@ -71,7 +68,7 @@ class ComicController extends Controller
     public function show(Comic $comic)
     {
         //
-        return view("comics.show", compact("comic"));
+        return view('comics.show', compact("comic"));
     }
 
     /**
