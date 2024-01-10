@@ -108,7 +108,7 @@ class ComicController extends Controller
         $formData = $request->validated();
         $comic->fill($formData);
         $comic->update();
-        return to_route('comic.show' , $comic->id);
+        return to_route('comics.show' , $comic->id);
 
     }
 
