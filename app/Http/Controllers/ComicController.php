@@ -5,6 +5,7 @@ use App\Models\Comic;
 use Illuminate\Http\Request;
 use illuminate\View\View;
 use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 class ComicController extends Controller
 {
     /**
@@ -92,20 +93,23 @@ class ComicController extends Controller
      * @param \App\Models\Comic $comic
      * @return \Illuminate\View\View
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request,  Comic $comic)
 
     {
         //
-        $formData = $request->all();
-        $comic->title = $formData['title'];
-        $comic->description = $formData['description'];
-        $comic->price = $formData['price'];
-        $comic->type = $formData['type'];
-        $comic->sale_date = '2024-08-01';
-        $comic->series = 'a piacere';
+        // $formData = $request->all();
+        // $comic->title = $formData['title'];
+        // $comic->description = $formData['description'];
+        // $comic->price = $formData['price'];
+        // $comic->type = $formData['type'];
+        // $comic->sale_date = '2024-08-01';
+        // $comic->series = 'a piacere';
+        // $comic->update();
+        $formData = $request->validated();
+        $comic->fill($formData);
         $comic->update();
+        return to_route('comic.show' , $comic->id);
 
-        return to_route('comics.show', $comic->id);
     }
 
 
