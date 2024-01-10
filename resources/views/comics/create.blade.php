@@ -28,8 +28,12 @@
                     class="form-control mt-2 w-25">
                 <input type="text" id="series" name="series" placeholder="inserisci una serie"
                     class="form-control mt-2 w-25">
-                    <input type="text" id="type" name="type" placeholder="inserisci un tipo"
-                    class="form-control mt-2 w-25">
+                    <select class="form-select w-25" name="type" id="type" aria-label="Default select example">
+                        <option selected>Seleziona la tipo</option>
+                        <option value="">All</option>
+                        <option value="comic book">comic book</option>
+                        <option value="graphic novel">graphic novel</option>
+                      </select>
                 <button type="submit" class="mt-4 btn btn-success">Invia
 
                 </button>

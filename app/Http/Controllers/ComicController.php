@@ -39,8 +39,10 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
         $formData = $request->all();
+        // dd($formData);
         $newComic = new Comic();
         $newComic->title = $formData["title"];
         $newComic->description = $formData["description"];
@@ -51,7 +53,7 @@ class ComicController extends Controller
         $newComic->type = $formData["type"];
         $newComic->save();
 
-        return to_route('comics.index');
+        // return to_route('comics.index');
     }
 
     /**

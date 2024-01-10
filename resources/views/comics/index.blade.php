@@ -10,7 +10,14 @@
     <main>
 
         <div class="container">
+            <a href="{{route ('comics.create') }}" class="btn btn-primary "> crea nuovo fumetto</a>
 
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleziona la serie</option>
+                <option value="">All</option>
+                <option value="comic">comic</option>
+                <option value="novel">novel</option>
+              </select>
             <h2 class="text-light">DC COMICS</h2>
             <div class="row">
                 @foreach ($comics as $comic)
@@ -20,16 +27,11 @@
                                 <a href="{{ route('comics.show', $comic->id) }}"><img src="{{ $comic->thumb }}"
                                         alt="{{ $comic->series }}"></a>
                             </div>
-
                             <span
                                 class="p-2 d-flex flex-wrap align-content-center text-light text-uppercase">{{ $comic->title }}</span>
-
                         </div>
-
-
                     </div>
                 @endforeach
-
             </div>
         </div>
 
